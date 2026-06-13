@@ -6,6 +6,11 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [1.8.1] - 2026-06-13
+
+### Changed
+- README: seccion **Motivacion** (por que existe el kit, arquitectura compartida, skills reutilizables y orquestador).
+
 ## [1.8.0] - 2026-06-13
 
 ### Added
