@@ -7,6 +7,22 @@ Kit npm para **organizar como trabajan los agentes de IA** en tu proyecto fronte
 
 ---
 
+## Motivacion
+
+Este kit nacio de un problema que se repite en el dia a dia: al crear proyectos nuevos o trabajar en repos existentes — sobre todo con **React** — suelo usar la **misma arquitectura**, las **mismas librerias** y los **mismos skills** para agentes de IA. Sin un punto de partida comun, cada chat improvisa carpetas, dependencias y enfoque; la IA no sigue tu metodo y pierdes tiempo reconfigurando lo mismo en cada repo.
+
+`frontend-agent-devkit` busca reducir esa friccion:
+
+- **Un solo setup** — `init` deja listos agentes, skills, wiki y el contrato en `AGENTS.md`.
+- **IA alineada con tu arquitectura** — capas, librerias acordadas y lectura gradual de contexto, no codigo a ciegas.
+- **Skills reutilizables** en todos tus proyectos — el mismo catalogo donde trabajes.
+- **Menos tiempo configurando, mas tiempo ensenando** — sobre todo con quienes estan aprendiendo: puedes centrarte en explicar el *por que* de la arquitectura en lugar de montar el entorno desde cero.
+- **Orquestador como primer paso** — con `/orquestador` defines como abordar cada tarea (feature, bug, refactor…) antes de implementar.
+
+La idea no es reemplazar tu criterio ni tu codigo: es que el agente **coordine** contigo y siga el mismo sistema en cada proyecto.
+
+---
+
 ## Que hace
 
 | Sin el kit | Con el kit |
