@@ -2,6 +2,9 @@
 
 Documentacion viva del proyecto concreto.
 
+- **Guia extendida del kit (instalacion, orquestador, referencia):** [readme/GUIA.md](readme/GUIA.md)
+- **Diagramas del README (HTML + PNG):** [readme/diagrams/](readme/diagrams/)
+
 ## Leer Segun Necesidad
 
 - `project-overview.md`: contexto del producto.

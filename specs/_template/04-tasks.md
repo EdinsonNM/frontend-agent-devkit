@@ -1,5 +1,7 @@
 # Tasks: <feature-name>
 
+> Cada task debe ser atomica: completable y verificable en una sesion.
+
 ## Setup
 
 - [ ] Confirmar scripts y entorno.
@@ -19,8 +21,8 @@
 
 - [ ] Actualizar documentacion afectada.
 
-## Cierre
+## Cierre (via /close-feature)
 
-- [ ] Confirmar criterios de aceptacion.
-- [ ] Registrar riesgos pendientes.
-
+- [ ] `node .agents/scripts/lint.mjs` en verde.
+- [ ] Criterios de aceptacion confirmados.
+- [ ] 05-decisions.md y 06-changes.md completados.

@@ -1,7 +1,7 @@
 {
   "name": "frontend-agent-devkit",
-  "version": "1.7.1",
-  "description": "Portable frontend wiki starter with agents, skills, commands, specs and IDE setup.",
+  "version": "1.8.0",
+  "description": "Portable frontend wiki starter with agents, skills, commands, specs, executable architecture guardrails (line limits + dependency rules) and brownfield analysis flow.",
   "license": "MIT",
   "type": "commonjs",
   "bin": {
@@ -23,7 +23,9 @@
     "specs/",
     "tools/agents-kit/",
     "tools/README.md",
-    "bin/"
+    "bin/",
+    "arch-rules.json",
+    ".claude"
   ],
   "repository": {
     "type": "git",
@@ -48,7 +50,8 @@
   },
   "scripts": {
     "verify": "node bin/frontend-agent-devkit.js verify",
-    "pack:dry": "npm pack --dry-run"
+    "pack:dry": "npm pack --dry-run",
+    "lint": "node bin/frontend-agent-devkit.js lint"
   },
   "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }

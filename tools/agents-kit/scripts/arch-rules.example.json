@@ -1,0 +1,49 @@
+{
+  "$comment": "Contrato ejecutable de la arquitectura. Espejo de wiki/architecture/frontend-clean-architecture/dependency-rules.md. Ajusta rutas/alias a tu proyecto. Excepciones legitimas: documentar en docs/architecture/decisions.md y reflejar aqui.",
+
+  "fileLimits": {
+    "maxLines": 200,
+    "include": ["src"],
+    "exclude": [
+      "**/*.test.*",
+      "**/*.spec.*",
+      "**/*.stories.*",
+      "**/generated/**",
+      "**/*.d.ts"
+    ]
+  },
+
+  "aliases": {
+    "@/": "src/"
+  },
+
+  "layers": {
+    "presentation": "src/presentation",
+    "infra": "src/infra",
+    "domains": "src/domains",
+    "core": "src/core",
+    "main": "src/main"
+  },
+
+  "rules": [
+    {
+      "from": "domains",
+      "deny": ["presentation", "infra", "main"],
+      "denyImports": ["react", "react-dom", "react-router-dom", "@tanstack/react-query", "axios"],
+      "$comment": "domains no depende de React, fetch, router, UI ni server state"
+    },
+    {
+      "from": "core",
+      "deny": ["presentation", "main"]
+    },
+    {
+      "from": "presentation",
+      "deny": [],
+      "$comment": "presentation consume hooks/use cases; agrega 'infra' a deny si quieres prohibir el acceso directo a services"
+    },
+    {
+      "from": "infra",
+      "deny": ["presentation", "main"]
+    }
+  ]
+}

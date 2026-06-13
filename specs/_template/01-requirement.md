@@ -1,4 +1,4 @@
-# Spec: <feature-name>
+# Requerimiento: <feature-name>
 
 ## Problema
 

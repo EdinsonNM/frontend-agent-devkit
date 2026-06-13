@@ -6,6 +6,26 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-06-13
+
+### Added
+- Guardrails ejecutables en `tools/agents-kit/scripts/`: `lint.mjs` (entrada unica), `check-limits.mjs` (limite de 200 lineas), `check-architecture.mjs` (reglas de dependencia), `lib-rules.mjs`. Sin dependencias, Node 18+.
+- Comando `frontend-agent-devkit lint [archivos...]`.
+- `arch-rules.json` en la raiz: contrato declarativo y ejecutable de la arquitectura (espejo de dependency-rules.md). Se distribuye e instala en el proyecto consumidor via `init`.
+- `.claude/settings.json` con hook `PostToolUse` que valida tras cada Edit/Write (exit 2 devuelve el reporte al agente).
+- Skill `code-guardrails`: envuelve los validadores.
+- Skill `frontend-analyze` y comando `/analyze`: analisis brownfield persistente en `docs/analysis/<area>/`.
+- Comando `/close-feature`: cierre formal con lint + tests + criterios + 06-changes.
+- Templates de `docs/analysis/_template/`.
+- Diagramas editoriales del README en `docs/readme/diagrams/` (HTML + PNG, estilo diagram-design).
+- Guia extendida en `docs/readme/GUIA.md`.
+
+### Changed
+- `specs/_template/` migrado a estructura 00-06 (resumen ejecutivo, requerimiento, estado actual, plan, tasks, decisiones, cambios). `spec.md`/`plan.md`/`tasks.md` ahora son `01`/`03`/`04`.
+- Orquestador: gate brownfield (analyze antes de feature sobre area desconocida) y gate de cierre (no cierra sin lint en verde).
+- `frontend-spec-kit`, `create-spec`, `implement-feature`: alineados a la estructura 00-06 y a la validacion por task.
+- README simplificado (~75% menos texto) con diagramas; detalle operativo movido a `docs/readme/GUIA.md`.
+
 ## [1.7.1] - 2026-05-07
 
 ### Changed

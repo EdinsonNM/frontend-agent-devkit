@@ -16,6 +16,8 @@ const STARTER_ENTRIES = [
   'GEMINI.md',
   'README.md',
   'STARTER-AUDIT.md',
+  'arch-rules.json',
+  '.claude',
   'docs',
   'install.sh',
   'scripts',
@@ -31,12 +33,18 @@ Usage:
   frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|opencode|copilot|all] [--force]
   frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|opencode|copilot|all [--force]
   frontend-agent-devkit verify
+  frontend-agent-devkit lint [archivos...]
   frontend-agent-devkit help
 
 Examples:
   npx frontend-agent-devkit init --tool cursor
   frontend-agent-devkit setup --tool claude
   frontend-agent-devkit verify
+  frontend-agent-devkit lint
+  frontend-agent-devkit lint src/presentation/foo.tsx
+
+El comando lint corre los guardrails (limite de lineas + arquitectura) usando
+arch-rules.json de la raiz del proyecto. Requiere haber ejecutado init/setup antes.
 
 Sin --force: las carpetas existentes se fusionan (se copian archivos que faltan); los archivos que ya existen no se sobrescriben. Con --force también se sobrescriben archivos.
 
@@ -313,10 +321,10 @@ function verify() {
   const commands = countFiles(path.join(agentsRoot, 'commands'), file => file.endsWith('.md'));
 
   console.log(`agents: ${agents} / 20`);
-  console.log(`skills: ${skills} / 12`);
-  console.log(`commands: ${commands} / 8`);
+  console.log(`skills: ${skills} / 14`);
+  console.log(`commands: ${commands} / 10`);
 
-  ok = ok && agents === 20 && skills === 12 && commands === 8;
+  ok = ok && agents === 20 && skills === 14 && commands === 10;
 
   if (!ok) {
     process.exitCode = 1;
@@ -351,6 +359,17 @@ function main() {
   if (command === 'verify') {
     verify();
     return;
+  }
+
+  if (command === 'lint') {
+    const { spawnSync } = require('child_process');
+    const localScript = path.join(CWD, '.agents', 'scripts', 'lint.mjs');
+    const script = fs.existsSync(localScript)
+      ? localScript
+      : path.join(TOOLS_AGENTS_KIT, 'scripts', 'lint.mjs');
+    const rest = args._.slice(1);
+    const res = spawnSync('node', [script, ...rest], { stdio: 'inherit', cwd: CWD });
+    process.exit(res.status == null ? 1 : res.status);
   }
 
   console.error(`Unknown command: ${command}`);

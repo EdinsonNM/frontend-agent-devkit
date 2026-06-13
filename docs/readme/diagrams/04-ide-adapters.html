@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>frontend-agent-devkit · Adaptadores IDE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Geist', system-ui, sans-serif;
+      background: #f5f5f5;
+      color: #2d3142;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .frame { max-width: 1000px; width: 100%; }
+    .eyebrow {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #4f5d75;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    svg { width: 100%; display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Architecture · frontend-agent-devkit</p>
+    <h1>Un catalogo, varios IDEs</h1>
+    <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="0.9" fill="rgba(45,49,66,0.10)"/>
+        </pattern>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eb6c36"/></marker>
+      </defs>
+      <rect width="100%" height="100%" fill="#f5f5f5"/>
+      <rect width="100%" height="100%" fill="url(#dots)" opacity="0.55"/>
+
+      <!-- npm package -->
+      <rect x="40" y="140" width="140" height="72" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+      <text x="110" y="172" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">npm package</text>
+      <text x="110" y="190" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">tools/agents-kit</text>
+
+      <!-- init arrow -->
+      <line x1="180" y1="176" x2="228" y2="176" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="184" y="160" width="40" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="204" y="170" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">init</text>
+
+      <!-- .agents focal -->
+      <rect x="228" y="140" width="144" height="72" rx="6" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="1"/>
+      <text x="300" y="172" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">.agents/</text>
+      <text x="300" y="190" fill="#eb6c36" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">fuente unica</text>
+      <text x="300" y="204" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">agents · skills · commands</text>
+
+      <!-- setup arrow -->
+      <line x1="372" y1="176" x2="420" y2="176" stroke="#eb6c36" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+      <rect x="376" y="160" width="44" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="398" y="170" fill="#eb6c36" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">setup</text>
+
+      <!-- setup node -->
+      <rect x="420" y="148" width="120" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+      <text x="480" y="172" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">--tool</text>
+      <text x="480" y="188" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">cursor · claude · …</text>
+
+      <!-- fan out to IDEs -->
+      <line x1="540" y1="176" x2="580" y2="100" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <line x1="540" y1="176" x2="580" y2="152" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <line x1="540" y1="176" x2="580" y2="204" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <line x1="540" y1="176" x2="580" y2="256" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <line x1="540" y1="176" x2="580" y2="308" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <!-- IDE nodes -->
+      <rect x="580" y="72" width="160" height="48" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+      <text x="660" y="94" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Cursor</text>
+      <text x="660" y="110" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">.cursor/rules · skills</text>
+
+      <rect x="580" y="128" width="160" height="48" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+      <text x="660" y="150" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Claude Code</text>
+      <text x="660" y="166" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">.claude/agents · skills</text>
+
+      <rect x="580" y="180" width="160" height="48" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+      <text x="660" y="202" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Codex</text>
+      <text x="660" y="218" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">AGENTS.md · .codex/</text>
+
+      <rect x="580" y="232" width="160" height="48" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+      <text x="660" y="254" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">OpenCode · Copilot</text>
+      <text x="660" y="270" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">.opencode · .github/</text>
+
+      <rect x="580" y="284" width="160" height="48" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.25)" stroke-width="1"/>
+      <text x="660" y="306" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Antigravity</text>
+      <text x="660" y="322" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">.agent/rules · GEMINI.md</text>
+
+      <!-- also copies -->
+      <rect x="228" y="260" width="312" height="56" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.20)" stroke-width="1"/>
+      <text x="384" y="284" fill="#2d3142" font-size="10" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">init tambien copia</text>
+      <text x="384" y="302" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">wiki/ · docs/ · specs/ · AGENTS.md · arch-rules.json</text>
+
+      <text x="500" y="372" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">--force sobrescribe plantillas · verify comprueba conteos esperados</text>
+    </svg>
+  </div>
+</body>
+</html>
